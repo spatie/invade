@@ -37,7 +37,7 @@ class MyClass
     }
 }
 
-$myClass = Myclass();
+$myClass = new Myclass();
 ```
 
 This is how you can get the value of the private property using the `invade` function.
