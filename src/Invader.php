@@ -4,7 +4,7 @@ namespace Spatie\Invade;
 
 use ReflectionClass;
 
-class Invador
+class Invader
 {
     public object $obj;
     public ReflectionClass $reflected;
