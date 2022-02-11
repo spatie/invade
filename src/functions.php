@@ -1,10 +1,10 @@
 <?php
 
-use Spatie\Invade\Invador;
+use Spatie\Invade\Invader;
 
 if (!function_exists('invade')) {
     function invade(object $object)
     {
-        return new Invador($object);
+        return new Invader($object);
     }
 }
