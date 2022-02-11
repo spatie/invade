@@ -2,7 +2,9 @@
 
 use Spatie\Invade\Invador;
 
-function invade(object $object)
-{
-    return new Invador($object);
+if (!function_exists('invade')) {
+    function invade(object $object)
+    {
+        return new Invador($object);
+    }
 }
