@@ -1,6 +1,6 @@
 <?php
 
-beforeEach(function() {
+beforeEach(function () {
     $this->class = new class () {
         private string $privateProperty = 'privateValue';
 
@@ -30,4 +30,3 @@ it('can call the private method of an object', function () {
 
     expect($returnValue)->toBe('private return value');
 });
-
