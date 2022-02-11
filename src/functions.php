@@ -1,8 +1,8 @@
 <?php
 
-use Spatie\Invade\Invador;
+use Spatie\Invade\Invader;
 
 function invade(object $object)
 {
-    return new Invador($object);
+    return new Invader($object);
 }
