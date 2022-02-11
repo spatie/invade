@@ -4,7 +4,7 @@
 [![Tests](https://github.com/spatie/invade/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/spatie/invade/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/invade.svg?style=flat-square)](https://packagist.org/packages/spatie/invade)
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+This package offers an `invade` function that will allow you to read/write private properties of an object. It will also allow you to call private methods.
 
 ## Support us
 
@@ -24,9 +24,39 @@ composer require spatie/invade
 
 ## Usage
 
+Imagine you have this class defined which has a private property and method.
+
 ```php
-$skeleton = new Spatie\Invade();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+class MyClass 
+{
+    private string $privateProperty = 'private value';
+
+    private function privateMethod(): string
+    {
+        return 'private return value';
+    }
+}
+
+$myClass = Myclass();
+```
+
+This is how you can get the value of the private property using the `invade` function.
+
+```php
+invade($myClass)->privateProperty; // returns 'private value'
+```
+
+The `invade` function also allows you to change private values.
+
+```php
+invade($myClass)->privateProperty = 'changed value';
+invade($myClass)->privateProperty; // returns 'changed value
+```
+
+Using `invade` you can also call private functions.
+
+```php
+invade($myClass)->privateMethod(); // returns 'private return value'
 ```
 
 ## Testing
@@ -51,6 +81,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [Freek Van der Herten](https://github.com/spatie)
 - [All Contributors](../../contributors)
+
+The [original idea](https://twitter.com/calebporzio/status/1492141967404371968) for the `invade` function came from [Caleb "string king" Porzio](https://twitter.com/calebporzio). We slightly polished the code that he created in [this commit on Livewire](https://github.com/livewire/livewire/pull/4649/files).
 
 ## License
 

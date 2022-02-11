@@ -2,7 +2,7 @@
 
 beforeEach(function() {
     $this->class = new class () {
-        private $privateProperty = 'privateValue';
+        private string $privateProperty = 'privateValue';
 
         private function privateMethod(): string
         {
