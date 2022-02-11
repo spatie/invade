@@ -1,4 +1,4 @@
-# 🕵️‍♂️ A PHP function to work private properties and methods
+# A PHP function to work private properties and methods
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/invade.svg?style=flat-square)](https://packagist.org/packages/spatie/invade)
 [![Tests](https://github.com/spatie/invade/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/spatie/invade/actions/workflows/run-tests.yml)
