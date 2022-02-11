@@ -1,6 +1,6 @@
 {
     "name": "spatie/invade",
-    "description": "A PHP function to read private properties",
+    "description": "A PHP function to work with private properties and methods",
     "keywords": [
         "spatie",
         "invade"
