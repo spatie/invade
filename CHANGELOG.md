@@ -2,6 +2,20 @@
 
 All notable changes to `invade` will be documented in this file.
 
+## 1.0.2 - 2022-02-21
+
+## What's Changed
+
+- Bump dependabot/fetch-metadata from 1.1.1 to 1.2.0 by @dependabot in https://github.com/spatie/invade/pull/6
+- Add brand new logo to the project by @caneco in https://github.com/spatie/invade/pull/7
+
+## New Contributors
+
+- @dependabot made their first contribution in https://github.com/spatie/invade/pull/6
+- @caneco made their first contribution in https://github.com/spatie/invade/pull/7
+
+**Full Changelog**: https://github.com/spatie/invade/compare/1.0.1...1.0.2
+
 ## 1.0.1 - 2022-02-11
 
 ## What's Changed
