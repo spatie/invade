@@ -2,6 +2,15 @@
 
 All notable changes to `invade` will be documented in this file.
 
+## 1.0.2 - 2022-02-21
+
+## What's Changed
+
+- Brand new logo to the project
+
+## New Contributors
+– @caneco made their first contribution in https://github.com/spatie/invade/pull/7
+
 ## 1.0.1 - 2022-02-11
 
 ## What's Changed

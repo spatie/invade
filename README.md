@@ -1,3 +1,5 @@
+<p align="center"><img src="/art/socialcard.png" alt="Social Card of Invade"></p>
+
 # A PHP function to access private properties and methods
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/invade.svg?style=flat-square)](https://packagist.org/packages/spatie/invade)
@@ -27,7 +29,7 @@ composer require spatie/invade
 Imagine you have this class defined which has a private property and method.
 
 ```php
-class MyClass 
+class MyClass
 {
     private string $privateProperty = 'private value';
 
@@ -81,6 +83,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [Freek Van der Herten](https://github.com/spatie)
 - [All Contributors](../../contributors)
+
+And a special thanks to [Caneco](https://twitter.com/caneco) for the logo ✨
 
 The [original idea](https://twitter.com/calebporzio/status/1492141967404371968) for the `invade` function came from [Caleb "string king" Porzio](https://twitter.com/calebporzio). We slightly polished the code that he created in [this commit on Livewire](https://github.com/livewire/livewire/pull/4649/files).
 
