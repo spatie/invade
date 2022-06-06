@@ -2,6 +2,22 @@
 
 All notable changes to `invade` will be documented in this file.
 
+## 1.0.3 - 2022-06-06
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.2.0 to 1.2.1 by @dependabot in https://github.com/spatie/invade/pull/8
+- Bump dependabot/fetch-metadata from 1.2.1 to 1.3.0 by @dependabot in https://github.com/spatie/invade/pull/9
+- Bump dependabot/fetch-metadata from 1.3.0 to 1.3.1 by @dependabot in https://github.com/spatie/invade/pull/11
+- Add type checking via phpstan by @olivernybroe in https://github.com/spatie/invade/pull/5
+- Bump actions/checkout from 2 to 3 by @dependabot in https://github.com/spatie/invade/pull/10
+
+### New Contributors
+
+- @olivernybroe made their first contribution in https://github.com/spatie/invade/pull/5
+
+**Full Changelog**: https://github.com/spatie/invade/compare/1.0.2...1.0.3
+
 ## 1.0.2 - 2022-02-21
 
 ## What's Changed
