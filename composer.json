@@ -19,6 +19,7 @@
     },
     "require-dev": {
         "pestphp/pest": "^1.20",
+        "phpstan/phpstan": "^1.4",
         "spatie/ray": "^1.28"
     },
     "autoload": {

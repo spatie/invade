@@ -4,11 +4,19 @@ namespace Spatie\Invade;
 
 use ReflectionClass;
 
+/**
+ * @template T of object
+ * @mixin T
+ */
 class Invader
 {
+    /** @var T */
     public object $obj;
     public ReflectionClass $reflected;
 
+    /**
+     * @param T $obj
+     */
     public function __construct(object $obj)
     {
         $this->obj = $obj;
