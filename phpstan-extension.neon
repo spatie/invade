@@ -1,0 +1,4 @@
+services:
+    - class: Spatie\Invade\PHPStan\InvadeReturnTypeExtension
+      tags:
+        - phpstan.broker.dynamicFunctionReturnTypeExtension

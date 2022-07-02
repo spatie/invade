@@ -46,6 +46,13 @@
             "pestphp/pest-plugin": true
         }
     },
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "phpstan-extension.neon"
+            ]
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
