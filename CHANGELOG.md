@@ -2,6 +2,18 @@
 
 All notable changes to `invade` will be documented in this file.
 
+## 1.1.0 - 2022-07-02
+
+### What's Changed
+
+- Add phpstan support to not report access to private properties/methods by @tpetry in https://github.com/spatie/invade/pull/12
+
+### New Contributors
+
+- @tpetry made their first contribution in https://github.com/spatie/invade/pull/12
+
+**Full Changelog**: https://github.com/spatie/invade/compare/1.0.3...1.1.0
+
 ## 1.0.3 - 2022-06-06
 
 ### What's Changed
