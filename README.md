@@ -64,7 +64,7 @@ Using `invade` you can also call private functions.
 invade($myClass)->privateMethod(); // returns 'private return value'
 ```
 
-## PHPStan
+### Making PHPStan understand Invade
 
 PHPStan will report errors for every invaded private method and property as it is not aware that you can now access them. To remove these errors install the [PHPStan extension installer](https://github.com/phpstan/extension-installer) or add the invade PHPStan extension manually to your PHPStan configuration:
 
