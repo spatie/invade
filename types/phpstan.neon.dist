@@ -2,6 +2,15 @@ parameters:
   paths:
     - .
   level: max
+  ignoreErrors:
+    -
+      message: '#^Parameter \#1 \$object of function invade expects object, mixed given\.$#'
+      count: 1
+      path: src/functions.php
+    -
+      message: '#^Unable to resolve the template type T in call to function invade$#'
+      count: 1
+      path: src/functions.php
 
 includes:
   - ../phpstan-extension.neon
