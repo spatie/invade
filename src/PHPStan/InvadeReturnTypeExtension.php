@@ -7,6 +7,7 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\FunctionReflection;
 use PHPStan\Type\DynamicFunctionReturnTypeExtension;
 use PHPStan\Type\ObjectType;
+use PHPStan\Type\ObjectWithoutClassType;
 use PHPStan\Type\Type;
 
 class InvadeReturnTypeExtension implements DynamicFunctionReturnTypeExtension
@@ -23,12 +24,12 @@ class InvadeReturnTypeExtension implements DynamicFunctionReturnTypeExtension
             return null;
         }
 
-        $obj = $scope->getType($args[0]->value);
+        $invaded = $scope->getType($args[0]->value);
 
-        if (! $obj instanceof ObjectType) {
-            return null;
+        if (! $invaded instanceof ObjectType) {
+            return new InvadedObjectType(new ObjectWithoutClassType());
         }
 
-        return new InvadedObjectType($obj);
+        return new InvadedObjectType($invaded);
     }
 }

@@ -11,7 +11,7 @@ class Example
 
     public function getMySecret(): string
     {
-        return $this->mySecret;
+        return $this->mySecret . $this->internalMethod();
     }
 
     private function internalMethod(): int

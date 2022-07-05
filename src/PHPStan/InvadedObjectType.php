@@ -5,23 +5,25 @@ namespace Spatie\Invade\PHPStan;
 use PHPStan\Reflection\ClassMemberAccessAnswerer;
 use PHPStan\Reflection\MethodReflection;
 use PHPStan\Reflection\PropertyReflection;
-use PHPStan\Type\ObjectType;
+use PHPStan\Type\Generic\GenericObjectType;
+use PHPStan\Type\Type;
+use Spatie\Invade\Invader;
 
-class InvadedObjectType extends ObjectType
+class InvadedObjectType extends GenericObjectType
 {
     public function __construct(
-        private ObjectType $object,
+        private Type $invaded,
     ) {
-        parent::__construct($this->object->getClassName(), $this->object->getSubtractedType(), $this->object->getClassReflection());
+        parent::__construct(Invader::class, [$invaded]);
     }
 
     public function getProperty(string $propertyName, ClassMemberAccessAnswerer $scope): PropertyReflection
     {
-        return new InvadedPropertyReflection(parent::getProperty($propertyName, $scope));
+        return new InvadedPropertyReflection($this->invaded->getProperty($propertyName, $scope));
     }
 
     public function getMethod(string $methodName, ClassMemberAccessAnswerer $scope): MethodReflection
     {
-        return new InvadedMethodReflection(parent::getMethod($methodName, $scope));
+        return new InvadedMethodReflection($this->invaded->getMethod($methodName, $scope));
     }
 }
