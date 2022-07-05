@@ -77,6 +77,7 @@ includes:
 
 ```bash
 composer test
+vendor/bin/phpstan analyse -c types/phpstan.neon.dist
 ```
 
 ## Changelog
