@@ -1,4 +1,8 @@
 services:
-    - class: Spatie\Invade\PHPStan\InvadeReturnTypeExtension
+    - class: Spatie\Invade\PHPStan\InvadePropertiesReflectionExtension
       tags:
-        - phpstan.broker.dynamicFunctionReturnTypeExtension
+        - phpstan.broker.propertiesClassReflectionExtension
+
+    - class: Spatie\Invade\PHPStan\InvadeMethodsReflectionExtension
+      tags:
+        - phpstan.broker.methodsClassReflectionExtension
