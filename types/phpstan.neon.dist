@@ -2,3 +2,6 @@ parameters:
   paths:
     - .
   level: max
+
+includes:
+  - ../phpstan-extension.neon
