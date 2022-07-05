@@ -11,6 +11,10 @@ parameters:
       message: '#^Unable to resolve the template type T in call to function invade$#'
       count: 1
       path: src/functions.php
+    -
+      message: '#Parameter \#1 \$obj of class Spatie\\Invade\\Invader constructor expects T of object, mixed given\.#'
+      count: 1
+      path: src/Invader.php
 
 includes:
   - ../phpstan-extension.neon

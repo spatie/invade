@@ -13,4 +13,9 @@ class Example
     {
         return $this->mySecret;
     }
+
+    private function internalMethod(): int
+    {
+        return 2115;
+    }
 }
