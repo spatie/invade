@@ -25,15 +25,15 @@
     "autoload": {
         "psr-4": {
             "Spatie\\Invade\\": "src"
-        },
-        "files": [
-            "src/functions.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
             "Spatie\\Invade\\Tests\\": "tests"
-        }
+        },
+        "files": [
+            "src/functions.php"
+        ]
     },
     "scripts": {
         "test": "vendor/bin/pest",

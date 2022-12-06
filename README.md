@@ -27,6 +27,14 @@ You can install the package via composer:
 composer require spatie/invade
 ```
 
+If you want to use the global `invade()` function, add the following to `composer.json`  autoload section:
+
+```json
+"files": [
+  "vendor/spatie/invade/src/functions.php"
+]
+```
+
 ## Usage
 
 Imagine you have this class defined which has a private property and method.
@@ -48,19 +56,28 @@ $myClass = new Myclass();
 This is how you can get the value of the private property using the `invade` function.
 
 ```php
+new Spatie\Invade\Invader($myClass)->privateProperty; // returns 'private value'
+// or
 invade($myClass)->privateProperty; // returns 'private value'
 ```
 
 The `invade` function also allows you to change private values.
 
 ```php
+new Spatie\Invade\Invader($myClass)->privateProperty= 'changed value'
+// or
 invade($myClass)->privateProperty = 'changed value';
+
+new Spatie\Invade\Invader($myClass)->privateProperty; // returns 'changed value
+// or
 invade($myClass)->privateProperty; // returns 'changed value
 ```
 
 Using `invade` you can also call private functions.
 
 ```php
+new Spatie\Invade\Invader($myClass)->privateMethod(); // returns 'private return value'
+// or
 invade($myClass)->privateMethod(); // returns 'private return value'
 ```
 
