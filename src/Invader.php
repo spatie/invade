@@ -39,6 +39,6 @@ class Invader
 
     public function __call(string $name, array $params = []): mixed
     {
-        return (fn () $this->{$name}(...$params))->call($this->obj);
+        return (fn () => $this->{$name}(...$params))->call($this->obj);
     }
 }
