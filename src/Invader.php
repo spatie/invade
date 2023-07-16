@@ -25,12 +25,6 @@ class Invader
 
     public function __get(string $name): mixed
     {
-        /*$property = $this->reflected->getProperty($name);
-
-        $property->setAccessible(true);
-
-        return $property->getValue($this->obj);*/
-
         return (fn () $this->{$name})->call($this->obj);
     }
 
@@ -45,10 +39,6 @@ class Invader
 
     public function __call(string $name, array $params = []): mixed
     {
-        $method = $this->reflected->getMethod($name);
-
-        $method->setAccessible(true);
-
-        return $method->invoke($this->obj, ...$params);
+        return (fn () $this->{$name}(...$params))->call($this->obj);
     }
 }
