@@ -11,9 +11,9 @@ class Invader
     /**
      * @param T $obj
      */
-    public function __construct(public object $obj)
-    {
-        $this->obj = $obj;
+    public function __construct(
+        public object $obj
+    ) {
     }
 
     public function __get(string $name): mixed
