@@ -10,13 +10,10 @@ use ReflectionClass;
  */
 class Invader
 {
-    /** @var T */
-    public object $obj;
-
     /**
      * @param T $obj
      */
-    public function __construct(object $obj)
+    public function __construct(public object $obj)
     {
         $this->obj = $obj;
     }
