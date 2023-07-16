@@ -25,11 +25,13 @@ class Invader
 
     public function __get(string $name): mixed
     {
-        $property = $this->reflected->getProperty($name);
+        /*$property = $this->reflected->getProperty($name);
 
         $property->setAccessible(true);
 
-        return $property->getValue($this->obj);
+        return $property->getValue($this->obj);*/
+
+        return (fn () $this->{$name})->call($this->obj);
     }
 
     public function __set(string $name, mixed $value): void
