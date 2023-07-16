@@ -2,8 +2,6 @@
 
 namespace Spatie\Invade;
 
-use ReflectionClass;
-
 /**
  * @template T of object
  * @mixin T
