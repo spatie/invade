@@ -25,7 +25,7 @@ class Invader
 
     public function __get(string $name): mixed
     {
-        return (fn () $this->{$name})->call($this->obj);
+        return (fn () => $this->{$name})->call($this->obj);
     }
 
     public function __set(string $name, mixed $value): void
