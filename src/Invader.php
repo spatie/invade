@@ -6,7 +6,7 @@ namespace Spatie\Invade;
  * @template T of object
  * @mixin T
  */
-readonly class Invader
+class Invader
 {
     /**
      * @param T $obj
