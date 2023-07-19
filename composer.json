@@ -36,21 +36,14 @@
         }
     },
     "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+        "test-coverage": "vendor/bin/pest --coverage"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true
-        }
-    },
-    "extra": {
-        "phpstan": {
-            "includes": [
-                "phpstan-extension.neon"
-            ]
         }
     },
     "minimum-stability": "dev",
