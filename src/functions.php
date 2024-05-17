@@ -7,22 +7,15 @@ if (! function_exists('invade')) {
     /**
      * @template T of object
      *
-     * @param T $object
-     * @return Invader<T>
+     * @param T|class-string $object
+     * @return Invader<T>|StaticInvader
      */
-    function invade(object $object): Invader
+    function invade(object|string $object): Invader|StaticInvader
     {
-        return new Invader($object);
-    }
-}
+        if (is_object($object)) {
+            return new Invader($object);
+        }
 
-if (! function_exists('invadeStatic')) {
-    /**
-     * @param class-string $class
-     * @return StaticInvader
-     */
-    function invadeStatic(string $class): StaticInvader
-    {
-        return new StaticInvader($class);
+        return new StaticInvader($object);
     }
 }

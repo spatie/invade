@@ -61,7 +61,7 @@ Using `invade` you can also call private functions.
 invade($myClass)->privateMethod(); // returns 'private return value'
 ```
 
-Further, there is also `invadeStatic` to get and set private static class properties and call private static methods. Imagine having this class:
+Further, you can also get and set private static class properties and call private static methods. Imagine having this class:
 
 ```php
 class MyClass
@@ -78,17 +78,17 @@ class MyClass
 Here is how you get and set private class properties:
 
 ```php
-invadeStatic(MyClass::class)->get('privateProperty'); // returns 'private value'
+invade(MyClass::class)->get('privateProperty'); // returns 'private value'
 
-invadeStatic(MyClass::class)->set('privateProperty', 'changedValue');
+invade(MyClass::class)->set('privateProperty', 'changedValue');
 
-invadeStatic(MyClass::class)->get('privateProperty'); // returns 'changedValue'
+invade(MyClass::class)->get('privateProperty'); // returns 'changedValue'
 ```
 
 And this is how you call private static methods:
 
 ```php
-invadeStatic(MyClass::class)
+invade(MyClass::class)
     ->method('privateMethod')
     ->call('foo', 123);
 
