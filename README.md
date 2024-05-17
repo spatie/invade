@@ -66,9 +66,9 @@ Further, you can also get and set private static class properties and call priva
 ```php
 class MyClass
 {
-    private static string $privateProperty = 'privateValue';
+    private static string $privateStaticProperty = 'privateValue';
 
-    private static function privateMethod(string $string, int $int): string
+    private static function privateStaticMethod(string $string, int $int): string
     {
         return 'private return value ' . $string . ' ' . $int;
     }
@@ -78,18 +78,18 @@ class MyClass
 Here is how you get and set private class properties:
 
 ```php
-invade(MyClass::class)->get('privateProperty'); // returns 'private value'
+invade(MyClass::class)->get('privateStaticProperty'); // returns 'private value'
 
-invade(MyClass::class)->set('privateProperty', 'changedValue');
+invade(MyClass::class)->set('privateStaticProperty', 'changedValue');
 
-invade(MyClass::class)->get('privateProperty'); // returns 'changedValue'
+invade(MyClass::class)->get('privateStaticProperty'); // returns 'changedValue'
 ```
 
 And this is how you call private static methods:
 
 ```php
 invade(MyClass::class)
-    ->method('privateMethod')
+    ->method('privateStaticMethod')
     ->call('foo', 123);
 
 // returns 'private return value foo 123'
