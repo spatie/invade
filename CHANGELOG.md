@@ -2,6 +2,22 @@
 
 All notable changes to `invade` will be documented in this file.
 
+## 2.1.0 - 2024-05-17
+
+### What's Changed
+
+* update run-tests.yml by @parastooam in https://github.com/spatie/invade/pull/27
+* Updated actions/composer-install to v3 and actions/checkout to v4 by @parastooam in https://github.com/spatie/invade/pull/29
+* Invade static properties and methods by @otsch in https://github.com/spatie/invade/pull/32
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.1.0 by @dependabot in https://github.com/spatie/invade/pull/31
+
+### New Contributors
+
+* @parastooam made their first contribution in https://github.com/spatie/invade/pull/27
+* @otsch made their first contribution in https://github.com/spatie/invade/pull/32
+
+**Full Changelog**: https://github.com/spatie/invade/compare/2.0.0...2.1.0
+
 ## 2.0.0 - 2023-07-19
 
 ### What's Changed
