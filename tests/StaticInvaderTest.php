@@ -2,6 +2,12 @@
 
 namespace Spatie\Invade\Tests;
 
+beforeEach(function () {
+    if (invadeStatic(Example::class)->get('privateProperty') === 'changedValue') {
+        invadeStatic(Example::class)->set('privateProperty', 'privateValue');
+    }
+});
+
 it('reads a static private property', function () {
     $privateValue = invadeStatic(Example::class)->get('privateProperty');
 
