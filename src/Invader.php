@@ -39,14 +39,24 @@ class Invader
     public function __call(string $name, array $params = []): mixed
     {
         $method = $this->findPrivateMethod($this->reflectionClass, $name, $this->obj);
+
         return $method->invoke($this->obj);
     }
 
-    function findPrivateMethod(ReflectionClass $class, string $methodName, object $obj)
+    /**
+     * It recursively searches for a method name within the class and its parent classes.
+     *
+     * @param ReflectionClass $class
+     * @param string $methodName
+     * @param object $obj
+     *
+     * @return \ReflectionMethod
+     */
+    function findPrivateMethod(ReflectionClass $class, string $methodName, object $obj): \ReflectionMethod
     {
         $parentClass = $class->getParentClass();
 
-        // Check if the method exists in the current class, and invoke a reflected method.
+        // Check if the method exists in the current class, and return accessible method.
         if ($class->hasMethod($methodName)) {
             $method = $class->getMethod($methodName);
             $method->setAccessible(true);
@@ -62,10 +72,20 @@ class Invader
         throw new InvalidArgumentException("Method {$methodName} not found in class hierarchy");
     }
 
-    function findPrivateProperty(ReflectionClass $class, string $propertyName, object $obj)
+    /**
+     * It recursively searches for a property within the class and its parent classes.
+     *
+     * @param ReflectionClass $class
+     * @param string $propertyName
+     * @param object $obj
+     *
+     * @return \ReflectionProperty
+     */
+    function findPrivateProperty(ReflectionClass $class, string $propertyName, object $obj): \ReflectionProperty
     {
         $parentClass = $class->getParentClass();
 
+        // Check if the property exists in the current class, and return accessible property.
         if ($class->hasProperty($propertyName)) {
             $property = $class->getProperty($propertyName);
             $property->setAccessible(true);

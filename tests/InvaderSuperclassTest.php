@@ -34,7 +34,6 @@ it('expects exception when property could NOT be found', function () {
 
 it('can set the superclass private property', function () {
     invade($this->class)->superclassPrivateProperty = 'changedValue';
-
     $privateValue = invade($this->class)->superclassPrivateProperty;
 
     expect($privateValue)->toBe('changedValue');
