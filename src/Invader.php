@@ -52,7 +52,7 @@ class Invader
      *
      * @return \ReflectionMethod
      */
-    function findPrivateMethod(ReflectionClass $class, string $methodName, object $obj): \ReflectionMethod
+    private function findPrivateMethod(ReflectionClass $class, string $methodName, object $obj): \ReflectionMethod
     {
         $parentClass = $class->getParentClass();
 
@@ -81,7 +81,7 @@ class Invader
      *
      * @return \ReflectionProperty
      */
-    function findPrivateProperty(ReflectionClass $class, string $propertyName, object $obj): \ReflectionProperty
+    private function findPrivateProperty(ReflectionClass $class, string $propertyName, object $obj): \ReflectionProperty
     {
         $parentClass = $class->getParentClass();
 
