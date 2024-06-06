@@ -20,7 +20,7 @@ it('expects exception when method could NOT be found', function () {
     })->toThrow(InvalidArgumentException::class, 'Method invalidMethod not found in class hierarchy');
 });
 
-it('can read a private property of the base class through the subclass', function () {
+it('can read a private property of the superclass through the subclass', function () {
     $privateValue = invade($this->class)->superclassPrivateProperty;
 
     expect($privateValue)->toBe('superclassPrivateValue');
