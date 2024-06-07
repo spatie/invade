@@ -40,7 +40,7 @@ class Invader
     {
         $method = $this->findPrivateMethod($this->reflectionClass, $name, $this->obj);
 
-        return $method->invoke($this->obj);
+        return $method->invoke($this->obj, ...$params);
     }
 
     /**

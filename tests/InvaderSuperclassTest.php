@@ -38,3 +38,11 @@ it('can set the superclass private property', function () {
 
     expect($privateValue)->toBe('changedValue');
 });
+
+it('can call the private method of the superclass through the subclass with parameters', function () {
+    $firstParam = 'string parameter';
+    $secondParam = 123;
+    $returnValue = invade($this->class)->superclassPrivateMethodWithParams($firstParam, $secondParam);
+
+    expect($returnValue)->toBe('superclass private method with params where first param: '. $firstParam . ' and second param: '. $secondParam);
+});
