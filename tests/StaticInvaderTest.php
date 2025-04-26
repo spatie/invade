@@ -2,6 +2,8 @@
 
 namespace Spatie\Invade\Tests;
 
+use BadMethodCallException;
+
 beforeEach(function () {
     if (invade(Example::class)->get('privateStaticProperty') === 'changedValue') {
         invade(Example::class)->set('privateStaticProperty', 'privateValue');
@@ -28,4 +30,10 @@ it('calls a private static method', function () {
         ->call('test', 123);
 
     expect($returnValue)->toBe('private return value test 123');
+});
+
+it('throws an exception when trying to call a method without setting it first', function () {
+    expect(function () {
+        invade(Example::class)->call();
+    })->toThrow(BadMethodCallException::class, 'No method to be called. Use it like: invadeStatic(Foo::class)->method(\'bar\')->call()');
 });
