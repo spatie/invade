@@ -2,7 +2,7 @@
 
 namespace Spatie\Invade;
 
-use Exception;
+use BadMethodCallException;
 
 class StaticInvader
 {
@@ -34,16 +34,14 @@ class StaticInvader
     }
 
     /**
-     * @throws Exception
+     * @throws BadMethodCallException
      */
     public function call(...$params): mixed
     {
-        if ($this->method === null) {
-            throw new Exception(
-                'No method to be called. Use it like: invadeStatic(Foo::class)->method(\'bar\')->call()'
-            );
-        }
+        $this->method ?? throw new BadMethodCallException(
+            'No method to be called. Use it like: invadeStatic(Foo::class)->method(\'bar\')->call()'
+        );
 
-        return (fn ($method) => static::{$method}(...$params))->bindTo(null, $this->className)($this->method);
+        return (fn (string $method): mixed => static::$method(...$params))->bindTo(null, $this->className)($this->method);
     }
 }
