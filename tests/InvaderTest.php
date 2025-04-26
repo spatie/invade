@@ -1,5 +1,9 @@
 <?php
 
+namespace Spatie\Invade\Tests;
+
+use Spatie\Invade\Invader;
+
 beforeEach(function () {
     $this->class = new class () {
         private string $privateProperty = 'privateValue';
@@ -9,6 +13,14 @@ beforeEach(function () {
             return 'private return value';
         }
     };
+});
+
+it('creates invader instance for object', function () {
+    $invader = invade($this->class);
+
+    expect($invader)
+        ->toBeInstanceOf(Invader::class)
+        ->obj->toBe($this->class);
 });
 
 it('can read a private property of an object', function () {
