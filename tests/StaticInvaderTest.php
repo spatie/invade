@@ -12,7 +12,7 @@ beforeEach(function () {
 
 it('creates invader instance for class string', function () {
     $invader = invade(Example::class);
-    
+
     expect($invader)
         ->toBeInstanceOf(StaticInvader::class)
         ->className->toBe(Example::class);
