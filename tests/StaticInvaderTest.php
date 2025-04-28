@@ -2,10 +2,20 @@
 
 namespace Spatie\Invade\Tests;
 
+use Spatie\Invade\StaticInvader;
+
 beforeEach(function () {
     if (invade(Example::class)->get('privateStaticProperty') === 'changedValue') {
         invade(Example::class)->set('privateStaticProperty', 'privateValue');
     }
+});
+
+it('creates invader instance for class string', function () {
+    $invader = invade(Example::class);
+    
+    expect($invader)
+        ->toBeInstanceOf(StaticInvader::class)
+        ->className->toBe(Example::class);
 });
 
 it('reads a static private property', function () {
