@@ -2,6 +2,32 @@
 
 All notable changes to `invade` will be documented in this file.
 
+## 2.1.1 - 2026-08-24
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot[bot] in https://github.com/spatie/invade/pull/35
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot[bot] in https://github.com/spatie/invade/pull/36
+* test(StaticInvader): add class string instantiation validation by @Ayoub-Mabrouk in https://github.com/spatie/invade/pull/40
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/spatie/invade/pull/41
+* Update issue template by @AlexVanderbist in https://github.com/spatie/invade/pull/44
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/spatie/invade/pull/47
+* Bump actions/checkout from 4 to 6 by @dependabot[bot] in https://github.com/spatie/invade/pull/46
+* Bump stefanzweifel/git-auto-commit-action from 4 to 7 by @dependabot[bot] in https://github.com/spatie/invade/pull/45
+* Bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/spatie/invade/pull/48
+* Bump dependabot/fetch-metadata from 2.5.0 to 3.0.0 by @dependabot[bot] in https://github.com/spatie/invade/pull/49
+* Bump dependabot/fetch-metadata from 3.0.0 to 3.1.0 by @dependabot[bot] in https://github.com/spatie/invade/pull/50
+* Bump actions/checkout from 6 to 7 by @dependabot[bot] in https://github.com/spatie/invade/pull/51
+* Add phpstan configuration files to export-ignore by @jackbayliss in https://github.com/spatie/invade/pull/52
+
+### New Contributors
+
+* @Ayoub-Mabrouk made their first contribution in https://github.com/spatie/invade/pull/40
+* @AlexVanderbist made their first contribution in https://github.com/spatie/invade/pull/44
+* @jackbayliss made their first contribution in https://github.com/spatie/invade/pull/52
+
+**Full Changelog**: https://github.com/spatie/invade/compare/2.1.0...2.1.1
+
 ## 2.1.0 - 2024-05-17
 
 ### What's Changed
