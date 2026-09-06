@@ -7,6 +7,12 @@ on:
       - 'phpstan.neon.dist'
       - 'phpstan-extension.neon'
       - 'types/phpstan.neon.dist'
+  pull_request:
+    paths:
+      - '**.php'
+      - 'phpstan.neon.dist'
+      - 'phpstan-extension.neon'
+      - 'types/phpstan.neon.dist'
 
 jobs:
   phpstan:
