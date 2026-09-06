@@ -5,11 +5,18 @@ on:
     paths:
       - '**.php'
       - 'phpstan.neon.dist'
+      - 'phpstan-extension.neon'
+      - 'types/phpstan.neon.dist'
 
 jobs:
   phpstan:
-    name: phpstan
+    name: phpstan - PHPStan ${{ matrix.phpstan }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        phpstan: ['^1.12', '^2.0']
+
     steps:
       - uses: actions/checkout@v7
 
@@ -19,8 +26,14 @@ jobs:
           php-version: '8.0'
           coverage: none
 
+      - name: Select the PHPStan version
+        run: composer require --dev "phpstan/phpstan:${{ matrix.phpstan }}" --no-update --no-interaction
+
       - name: Install composer dependencies
         uses: ramsey/composer-install@v4
 
       - name: Run PHPStan
         run: ./vendor/bin/phpstan --error-format=github
+
+      - name: Check the types the extension infers
+        run: ./vendor/bin/phpstan analyse --configuration types/phpstan.neon.dist --error-format=github

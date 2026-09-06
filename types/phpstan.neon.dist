@@ -1,0 +1,9 @@
+includes:
+    - ../phpstan-extension.neon
+
+parameters:
+    level: max
+    paths:
+        - .
+    tmpDir: ../build/phpstan-types
+    reportUnmatchedIgnoredErrors: true
