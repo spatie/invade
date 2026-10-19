@@ -2,6 +2,28 @@
 
 All notable changes to `invade` will be documented in this file.
 
+## 2.2.0 - 2026-10-19
+
+### What’s new
+
+- Add a PHPStan extension for access through `invade($object)`, with automatic registration through `phpstan/extension-installer` and support for PHPStan 1.12 and 2.x.
+- Preserve property types and method signatures, including generic and inherited members, `static` / `$this` return types, and subclasses of `Invader`.
+- Keep invalid property writes, readonly writes, inaccessible parent-private members, and unsupported static-call syntax visible to analysis.
+
+Thanks to @SanderMuller for the contribution in #53.
+
+### Compatibility and tooling
+
+- PHP 8.2 or later is now required; support for end-of-life PHP 8.0 and 8.1 has been dropped. Existing runtime APIs are unchanged.
+- Update development tooling to Pest 3/4 and test PHP 8.2–8.5 with lowest and latest compatible dependencies.
+- Union types must be narrowed to a concrete class. The string-based `StaticInvader` API does not infer member types through this extension.
+
+### Validation
+
+All eight local PHP/dependency combinations pass: 9 Pest tests, 13 assertions, and clean PHPStan source/type checks. The new type regressions produce 9 failures on the original PR implementation and none after the fixes. Extension auto-registration was verified with PHPStan 1 and 2. GitHub Actions remained queued; this release was approved by the maintainer based on local verification.
+
+**Full changelog:** https://github.com/spatie/invade/compare/2.1.1...2.2.0
+
 ## 2.1.1 - 2026-08-24
 
 ### What's Changed
