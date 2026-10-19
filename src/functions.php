@@ -8,7 +8,7 @@ if (! function_exists('invade')) {
      * @template T of object
      *
      * @param T|class-string $object
-     * @return Invader<T>|StaticInvader
+     * @return ($object is object ? Invader<T> : StaticInvader)
      */
     function invade(object|string $object): Invader|StaticInvader
     {

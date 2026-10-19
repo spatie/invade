@@ -1,0 +1,14 @@
+includes:
+    - ../phpstan-extension.neon
+
+parameters:
+    level: max
+    paths:
+        - .
+    tmpDir: ../build/phpstan-types
+    reportUnmatchedIgnoredErrors: true
+    ignoreErrors:
+        -
+            message: '#^(Property .*::\$readonlyValue is not writable\.|Readonly property .*::\$readonlyValue is assigned outside of its declaring class\.)$#'
+            path: edge-cases.php
+            count: 1

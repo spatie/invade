@@ -30,3 +30,28 @@ it('can call the private method of an object', function () {
 
     expect($returnValue)->toBe('private return value');
 });
+
+it('returns the invaded object from a fluent method', function () {
+    $object = new class () {
+        protected function fluent(): static
+        {
+            return $this;
+        }
+    };
+
+    expect(invade($object)->fluent())->toBe($object);
+});
+
+it('cannot overwrite an initialized readonly property', function () {
+    $object = new class ('original') {
+        public function __construct(private readonly string $value)
+        {
+        }
+    };
+
+    expect(invade($object)->value)->toBe('original');
+    expect(function () use ($object) {
+        invade($object)->value = 'changed';
+    })->toThrow(Error::class, 'Cannot modify readonly property');
+    expect(invade($object)->value)->toBe('original');
+});

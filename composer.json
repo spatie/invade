@@ -15,11 +15,12 @@
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.2"
     },
     "require-dev": {
-        "pestphp/pest": "^1.20",
-        "phpstan/phpstan": "^1.4",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "pestphp/pest": "^3.8 || ^4.0",
+        "phpstan/phpstan": "^1.12 || ^2.0",
         "spatie/ray": "^1.28"
     },
     "autoload": {
@@ -36,7 +37,11 @@
         }
     },
     "scripts": {
-        "analyse": "vendor/bin/phpstan analyse",
+        "analyse": [
+            "vendor/bin/phpstan analyse",
+            "vendor/bin/phpstan analyse --configuration types/phpstan.neon.dist"
+        ],
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage"
     },
@@ -44,6 +49,13 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "phpstan-extension.neon"
+            ]
         }
     },
     "minimum-stability": "dev",
