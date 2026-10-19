@@ -25,6 +25,11 @@ class GenericExample
         return $this->value;
     }
 
+    protected static function staticValue(string $argument): string
+    {
+        return $argument;
+    }
+
     protected function fluent(): static
     {
         return $this;
@@ -69,6 +74,9 @@ assertType('Spatie\Invade\Types\GenericExample<string>', invade($generic)->fluen
 $example = new ChildExample('value');
 assertType('string', invade($example)->value);
 assertType('string', invade($example)->value());
+assertType('string', invade($example)->staticValue('value'));
+/** @phpstan-ignore method.staticCall */
+invade($example)::staticValue('value');
 assertType(ChildExample::class, invade($example)->fluent());
 assertType(ChildExample::class, invade($example)->identity());
 assertType('array<int, Spatie\Invade\Types\ChildExample>', invade($example)->fluentList());

@@ -13,9 +13,8 @@ use PHPStan\Type\Type;
 use PHPStan\Type\TypeTraverser;
 
 /**
- * The invaded class's own method, reported as public. Visibility is the one thing the bound
- * closure changes: parameters, return type and throws stay the real method's, so a wrong
- * argument or a wrong assumption about the return value still fails.
+ * Invaded methods are exposed as public instance calls through __call(),
+ * even when the original method is static.
  */
 class InvadedMethodReflection implements MethodReflection
 {
@@ -42,7 +41,7 @@ class InvadedMethodReflection implements MethodReflection
 
     public function isStatic(): bool
     {
-        return $this->method->isStatic();
+        return false;
     }
 
     public function getName(): string
