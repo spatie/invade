@@ -18,6 +18,8 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 
 ## Installation
 
+This package requires PHP 8.2 or later.
+
 You can install the package via composer:
 
 ```bash
@@ -112,10 +114,15 @@ includes:
 
 Members are resolved against the invaded class and keep their own type and signature, so a read carries the real type, while a typo, a wrong argument, or a member the class does not have still fails.
 
+The extension supports PHPStan 1.12 and 2.x. It analyses native instance members when the invaded object's type resolves to a single class, including inherited protected members and generic classes. Returns declared as `static` or `$this` are typed as the invaded class, not the wrapper. Readonly properties remain read-only in analysis.
+
+Private members declared on a parent class remain inaccessible, matching the existing runtime behaviour. Narrow union types to a concrete class before invading them. The string-based `StaticInvader` API does not infer member types through this extension.
+
 ## Testing
 
 ```bash
 composer test
+composer analyse
 ```
 
 ## Changelog

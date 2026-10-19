@@ -2,10 +2,10 @@
 
 namespace Spatie\Invade\Types;
 
+use function PHPStan\Testing\assertType;
+
 use Spatie\Invade\Invader;
 use Spatie\Invade\StaticInvader;
-
-use function PHPStan\Testing\assertType;
 
 $example = new Example();
 

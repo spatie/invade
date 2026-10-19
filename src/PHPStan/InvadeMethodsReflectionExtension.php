@@ -24,6 +24,6 @@ class InvadeMethodsReflectionExtension implements MethodsClassReflectionExtensio
     {
         $invaded = InvadedClass::of($classReflection) ?? throw new ShouldNotHappenException();
 
-        return new InvadedMethodReflection($invaded->getNativeMethod($methodName));
+        return new InvadedMethodReflection($invaded->getNativeMethod($methodName), $invaded);
     }
 }

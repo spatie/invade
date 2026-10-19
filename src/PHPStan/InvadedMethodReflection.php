@@ -4,9 +4,13 @@ namespace Spatie\Invade\PHPStan;
 
 use PHPStan\Reflection\ClassMemberReflection;
 use PHPStan\Reflection\ClassReflection;
+use PHPStan\Reflection\FunctionVariant;
 use PHPStan\Reflection\MethodReflection;
+use PHPStan\Reflection\ParametersAcceptor;
 use PHPStan\TrinaryLogic;
+use PHPStan\Type\StaticType;
 use PHPStan\Type\Type;
+use PHPStan\Type\TypeTraverser;
 
 /**
  * The invaded class's own method, reported as public. Visibility is the one thing the bound
@@ -17,6 +21,7 @@ class InvadedMethodReflection implements MethodReflection
 {
     public function __construct(
         private MethodReflection $method,
+        private ClassReflection $invaded,
     ) {
     }
 
@@ -54,9 +59,22 @@ class InvadedMethodReflection implements MethodReflection
         return $this;
     }
 
+    /** @return array<int, ParametersAcceptor> */
     public function getVariants(): array
     {
-        return $this->method->getVariants();
+        return array_map(fn (ParametersAcceptor $variant) => new FunctionVariant(
+            $variant->getTemplateTypeMap(),
+            $variant->getResolvedTemplateTypeMap(),
+            $variant->getParameters(),
+            $variant->isVariadic(),
+            TypeTraverser::map($variant->getReturnType(), function (Type $type, callable $traverse): Type {
+                if ($type instanceof StaticType) {
+                    return $type->changeBaseClass($this->invaded)->getStaticObjectType();
+                }
+
+                return $traverse($type);
+            }),
+        ), $this->method->getVariants());
     }
 
     public function getDocComment(): ?string

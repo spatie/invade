@@ -13,7 +13,9 @@ class InvadedClass
      */
     public static function of(ClassReflection $classReflection): ?ClassReflection
     {
-        if ($classReflection->getName() !== Invader::class) {
+        $classReflection = $classReflection->getAncestorWithClassName(Invader::class);
+
+        if ($classReflection === null) {
             return null;
         }
 

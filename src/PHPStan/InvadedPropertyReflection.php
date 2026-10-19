@@ -37,6 +37,10 @@ class InvadedPropertyReflection implements PropertyReflection
 
     public function isWritable(): bool
     {
+        if ($this->property->isReadOnly()) {
+            return false;
+        }
+
         return $this->property->isWritable();
     }
 
